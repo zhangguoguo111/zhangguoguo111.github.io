@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="字符串之替换空格题目描述  请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>字符串 | 张果果的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="字符串之替换空格题目描述  请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="字符串">
+<meta property="og:url" content="http://yoursite.com/2020/04/03/%E5%AD%97%E7%AC%A6%E4%B8%B2/index.html">
+<meta property="og:site_name" content="张果果的博客">
+<meta property="og:description" content="字符串之替换空格题目描述  请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-03T13:49:49.000Z">
+<meta property="article:modified_time" content="2020-04-07T13:20:22.185Z">
+<meta property="article:author" content="张果果的博客">
+<meta property="article:tag" content="剑指offer">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="张果果的博客" rel="home">张果果的博客</a>
+      </h1>
+      
+        <h2 class="site-description hitokoto"></h2>
+        <script type="text/javascript" src="https://v1.hitokoto.cn/?encode=js"></script>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-字符串" class="post-字符串 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      字符串
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/04/03/%E5%AD%97%E7%AC%A6%E4%B8%B2/" data-id="ck8pxlti90004lwr25gby3bxl" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="字符串之替换空格"><a href="#字符串之替换空格" class="headerlink" title="字符串之替换空格"></a>字符串之替换空格</h2><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><h6 id="请实现一个函数，将一个字符串中的每个空格替换成“-20”。例如，当字符串为We-Are-Happy-则经过替换之后的字符串为We-20Are-20Happy。"><a href="#请实现一个函数，将一个字符串中的每个空格替换成“-20”。例如，当字符串为We-Are-Happy-则经过替换之后的字符串为We-20Are-20Happy。" class="headerlink" title="  请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。"></a>  请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。<a id="more"></a></h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">		StringBuffer str &#x3D; new StringBuffer(&quot;hello &quot;);</span><br><span class="line">		System.out.println(replaceBlank(str));</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	static String replaceBlank(StringBuffer str) &#123;</span><br><span class="line">    	if(str &#x3D;&#x3D; null) return null;</span><br><span class="line">		</span><br><span class="line">		for(int i &#x3D; 0; i &lt; str.length(); i++)&#123;</span><br><span class="line">			if(str.charAt(i) &#x3D;&#x3D; &#39; &#39;)&#123;</span><br><span class="line">				str.replace(i, i+1, &quot;%20&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		return str.toString(); </span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串的排列"><a href="#字符串的排列" class="headerlink" title="字符串的排列"></a>字符串的排列</h2><h4 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h4><h6 id="输入一个字符串-按字典序打印出该字符串中字符的所有排列。例如输入字符串abc-则打印出由字符a-b-c所能排列出来的所有字符串abc-acb-bac-bca-cab和cba。"><a href="#输入一个字符串-按字典序打印出该字符串中字符的所有排列。例如输入字符串abc-则打印出由字符a-b-c所能排列出来的所有字符串abc-acb-bac-bca-cab和cba。" class="headerlink" title="  输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。"></a>  输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。</h6><p>把字符串分为两部分：一部分是字符串的第一个字符，另一部分是第一个字符以后的所有字符。</p>
+<p>第一步是求所有可能出现在第一个位置的字符，即把第一个字符和后面所有字符交换。（for循环、交换操作）<br>第二步是固定住第一个字符，求后面所有字符的排列。（递归）<br>而“求后面所有字符的排列”即可按照上面的思路递归进行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">private static void permutationCore(char[] str, int begin, List&lt;String&gt; res) &#123;</span><br><span class="line">		&#x2F;&#x2F;终止条件</span><br><span class="line">		if(begin &#x3D;&#x3D; str.length -1)&#123;</span><br><span class="line">			res.add(String.valueOf(str));&#x2F;&#x2F;这个操作就是【回溯】，由下到上依次把结果保存到res中</span><br><span class="line">		&#125;</span><br><span class="line">		else&#123;</span><br><span class="line">			for(int i &#x3D; begin ; i &lt; str.length; i++)&#123;</span><br><span class="line">				&#x2F;&#x2F;相同字符处理</span><br><span class="line">				if(i!&#x3D; begin &amp;&amp; str[begin] &#x3D;&#x3D; str[i])&#123;</span><br><span class="line">					continue;</span><br><span class="line">				&#125;</span><br><span class="line">				&#x2F;&#x2F;将第一个字符begin与后面每一个字符交换位置</span><br><span class="line">				swap(str,begin,i);</span><br><span class="line">				&#x2F;&#x2F;对每一个交换后的字符集，固定第一个字符，从第二个字符开始继续执行以上操作</span><br><span class="line">				permutationCore(str, begin+1, res);</span><br><span class="line">				&#x2F;&#x2F;还原到交换前的状态，否则影响后续循环，也就是说第一步第一个字符与后面字符交换的前提是str的顺序不能变</span><br><span class="line">				swap(str,begin,i);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void swap(char[] str, int begin, int i) &#123;</span><br><span class="line">		char temp &#x3D; str[begin];</span><br><span class="line">		str[begin] &#x3D; str[i];</span><br><span class="line">		str[i] &#x3D; temp;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串之第一次只出现一次的字符"><a href="#字符串之第一次只出现一次的字符" class="headerlink" title="字符串之第一次只出现一次的字符"></a>字符串之第一次只出现一次的字符</h2><h4 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h4><h6 id="在一个字符串-0-lt-字符串长度-lt-10000，全部由字母组成-中找到第一个只出现一次的字符-并返回它的位置-如果没有则返回-1（需要区分大小写）"><a href="#在一个字符串-0-lt-字符串长度-lt-10000，全部由字母组成-中找到第一个只出现一次的字符-并返回它的位置-如果没有则返回-1（需要区分大小写）" class="headerlink" title="  在一个字符串(0&lt;=字符串长度&lt;=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置, 如果没有则返回 -1（需要区分大小写）."></a>  在一个字符串(0&lt;=字符串长度&lt;=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置, 如果没有则返回 -1（需要区分大小写）.</h6><p><strong>把字母的ASCII码值当成索引建立哈希表（通过ASCII码映射到内存中唯一存储位置，存储记录的</strong><code>数组叫</code><strong>散列表,即</strong><code>哈希表</code><strong>(HashTable),</strong> <code>哈希算法</code><strong>为</strong><code>ASCII码</code><strong>）</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">static int firstNotRepeatingChar(String str)&#123;</span><br><span class="line">		&#x2F;&#x2F;校验</span><br><span class="line">		if(str &#x3D;&#x3D; null || str.length() &#x3D;&#x3D; 0) return -1;</span><br><span class="line">		</span><br><span class="line">		char [] arr &#x3D; str.toCharArray();</span><br><span class="line">		int size &#x3D; &#39;z&#39;;&#x2F;&#x2F;字母的ASCII码最大值</span><br><span class="line">		int [] hashTable &#x3D; new int [size+1];&#x2F;&#x2F;因为索引是0 ~ size -1 &#x3D;&gt; 0 ~ 121 ，所以如果输入z为122，下标越界</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;构造表，用ASCII码数组记录每个字母出现次数</span><br><span class="line">		for(int i &#x3D; 0 ; i  &lt; arr.length; i++)&#123;</span><br><span class="line">			hashTable[(int)arr[i]]++;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;查表，返回当前索引值</span><br><span class="line">		for(int i &#x3D; 0 ; i  &lt; arr.length; i++)&#123;</span><br><span class="line">			if(hashTable[(int)arr[i]] &#x3D;&#x3D; 1)</span><br><span class="line">				return i;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		return -1;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串之左旋转字符串"><a href="#字符串之左旋转字符串" class="headerlink" title="字符串之左旋转字符串"></a>字符串之左旋转字符串</h2><p>题目描述<br>  汇编语言中有一种移位指令叫做循环左移（ROL），现在有个简单的任务，就是用字符串模拟这个指令的运算结果。对于一个给定的字符序列S，请你把其循环左移K位后的序列输出。例如，字符序列S=”abcXYZdef”,要求输出循环左移3位后的结果，即“XYZdefabc”。是不是很简单？OK，搞定它！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">static String leftRotateString(String str,int n) &#123;</span><br><span class="line">		&#x2F;&#x2F;校验</span><br><span class="line">        if(str &#x3D;&#x3D; null || str.length() &#x3D;&#x3D;0 || n &lt;&#x3D; 0) return str;</span><br><span class="line">        </span><br><span class="line">        return str.substring(n, str.length()) + str.substring(0, n);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;左移一次</span><br><span class="line">class Solution &#123;</span><br><span class="line">    public boolean rotateString(String A, String B) &#123;</span><br><span class="line">        if(A.isEmpty()&amp;&amp;B.isEmpty())</span><br><span class="line">            return true;</span><br><span class="line">        for(int i&#x3D;0;i&lt;A.length();i++)&#123;</span><br><span class="line">            char[] array &#x3D; A.toCharArray();</span><br><span class="line">            char C &#x3D; array[0];</span><br><span class="line">            for(int n&#x3D;0;n&lt;A.length()-1;n++)</span><br><span class="line">                array[n] &#x3D; array[n+1];</span><br><span class="line">            array[A.length()-1] &#x3D; C;</span><br><span class="line">            A &#x3D; String.valueOf(array);</span><br><span class="line">          &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串之翻转单词顺序列"><a href="#字符串之翻转单词顺序列" class="headerlink" title="字符串之翻转单词顺序列"></a>字符串之翻转单词顺序列</h2><p>牛客最近来了一个新员工Fish，每天早晨总是会拿着一本英文杂志，写些句子在本子上。同事Cat对Fish写的内容颇感兴趣，有一天他向Fish借来翻看，但却读不懂它的意思。例如，“student. a am I”。后来才意识到，这家伙原来把句子单词的顺序翻转了，正确的句子应该是“I am a student.”。Cat对一一的翻转这些单词顺序可不在行，你能帮助他么？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">static String reverseSentence(String str) &#123;</span><br><span class="line">		&#x2F;&#x2F;校验</span><br><span class="line">        if(str &#x3D;&#x3D; null || str.length() &#x3D;&#x3D;0) return str;</span><br><span class="line">        </span><br><span class="line">        String [] s &#x3D; str.split(&quot; &quot;);</span><br><span class="line">        if(s.length &gt; 0)&#123;</span><br><span class="line">        	String reStr &#x3D; &quot;&quot;;</span><br><span class="line">			for(int i &#x3D; s.length - 1; i &gt;&#x3D; 0;i--)&#123;</span><br><span class="line">            	reStr+&#x3D;s[i]+&quot; &quot;;</span><br><span class="line">            &#125;</span><br><span class="line">        	return reStr.substring(0, reStr.length() - 1);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return str;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串之把字符串转换成整数"><a href="#字符串之把字符串转换成整数" class="headerlink" title="字符串之把字符串转换成整数"></a>字符串之把字符串转换成整数</h2><p>题目描述<br>  将一个字符串转换成一个整数(实现Integer.valueOf(string)的功能，但是string不符合数字要求时返回0)，要求不能使用字符串转换整数的库函数。 数值为0或者字符串不是一个合法的数值则返回0。<br>  输入描述:<br>  输入一个字符串,包括数字字母符号,可以为空<br>  输出描述:<br>  如果是合法的数值表达则返回该数字，否则返回0   注意点如下：</p>
+<h6 id="①-参数校验，空字符串和是否合法数字-即小于等于’9’，大于等于’0’；"><a href="#①-参数校验，空字符串和是否合法数字-即小于等于’9’，大于等于’0’；" class="headerlink" title="   ① 参数校验，空字符串和是否合法数字(即小于等于’9’，大于等于’0’；)"></a>   ① 参数校验，空字符串和是否合法数字(即小于等于’9’，大于等于’0’；)</h6><h6 id="②符号位处理。"><a href="#②符号位处理。" class="headerlink" title="   ②符号位处理。"></a>   ②符号位处理。</h6><h6 id="③-int类型为4字节32位，判断溢出。"><a href="#③-int类型为4字节32位，判断溢出。" class="headerlink" title="   ③ int类型为4字节32位，判断溢出。"></a>   ③ int类型为4字节32位，判断溢出。</h6><h6 id="④-使用错误标识枚举。"><a href="#④-使用错误标识枚举。" class="headerlink" title="   ④ 使用错误标识枚举。"></a>   ④ 使用错误标识枚举。</h6><h6 id="还需要注意：char转int的处理，直接强转会转为ASCII码。"><a href="#还需要注意：char转int的处理，直接强转会转为ASCII码。" class="headerlink" title="   还需要注意：char转int的处理，直接强转会转为ASCII码。"></a>   还需要注意：char转int的处理，直接强转会转为ASCII码。</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    public int StrToInt(String str) &#123;</span><br><span class="line">        if(str&#x3D;&#x3D;null||str.trim().equals(&quot;&quot;))&#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;</span><br><span class="line">        char[] cc &#x3D; str.toCharArray();</span><br><span class="line">        int i,sum&#x3D;0,flag&#x3D;1;</span><br><span class="line">        if(cc[0]&#x3D;&#x3D;&#39;-&#39;)&#123;</span><br><span class="line">            i&#x3D;1;</span><br><span class="line">            flag &#x3D; -1;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(cc[0]&#x3D;&#x3D;&#39;+&#39;)&#123;</span><br><span class="line">            i&#x3D;1;</span><br><span class="line">            flag &#x3D; 1;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            i&#x3D;0;</span><br><span class="line">        &#125;</span><br><span class="line">        while(i&lt;cc.length)&#123;</span><br><span class="line">            if(isNumber(cc[i]))&#123;</span><br><span class="line">                sum &#x3D; sum * 10 + (cc[i] - &#39;0&#39;);</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                return 0;</span><br><span class="line">            &#125;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        return sum * flag;</span><br><span class="line">    &#125;</span><br><span class="line">    public boolean isNumber(char c)&#123;</span><br><span class="line">        if(c&#x3D;&#x3D;&#39;0&#39;||c&#x3D;&#x3D;&#39;1&#39;||c&#x3D;&#x3D;&#39;2&#39;||c&#x3D;&#x3D;&#39;3&#39;||c&#x3D;&#x3D;&#39;4&#39;||c&#x3D;&#x3D;&#39;5&#39;||c&#x3D;&#x3D;&#39;6&#39;||c&#x3D;&#x3D;&#39;7&#39;||c&#x3D;&#x3D;&#39;8&#39;||c&#x3D;&#x3D;&#39;9&#39;)&#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串之表示数值的字符串"><a href="#字符串之表示数值的字符串" class="headerlink" title="字符串之表示数值的字符串"></a>字符串之表示数值的字符串</h2><h4 id="题目描述-3"><a href="#题目描述-3" class="headerlink" title="题目描述"></a>题目描述</h4><h6 id="请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。"><a href="#请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。" class="headerlink" title="  请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。"></a>  请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。</h6><p>  例如，字符串”+100”,“5e2”,”-123”,“3.1416”和”-1E-16”都表示数值，但是”12e”,“1a3.14”,“1.2.3”,”±5”和”12e+4.3”都不是。</p>
+<p>思路：首先，搞清楚组成数字的4个部分：<br>     ① 数字本身 0-9<br>     ② 数字符号 + 或 -<br>     ③ 小数点 .<br>     ④ e或E<br>   然后，判断每一个数字位.判断时需要考虑3种情况：<br>     ① 若是正负号，必须出现在首位或e的后一位<br>     ② 若是e，之前必须出现过数字且没出现过e<br>     ③ 若是.，之前必须没出现过.和e</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">public static boolean isNumeric2(char[] s) &#123;</span><br><span class="line">    if (s &#x3D;&#x3D; null || s.length &#x3D;&#x3D; 0)</span><br><span class="line">        return false;</span><br><span class="line">    &#x2F;&#x2F; 记录是否出现过数字</span><br><span class="line">    boolean numberSeen &#x3D; false;</span><br><span class="line">    &#x2F;&#x2F; 是否出现过小数点</span><br><span class="line">    boolean pointSeen &#x3D; false;</span><br><span class="line">    &#x2F;&#x2F; 是否出现过指数标志e</span><br><span class="line">    boolean eSeen &#x3D; false;</span><br><span class="line">    &#x2F;&#x2F; e后是否出现过数字</span><br><span class="line">    boolean numberAfterE &#x3D; false;</span><br><span class="line"> </span><br><span class="line">    for (int i &#x3D; 0; i &lt; s.length; i++) &#123;</span><br><span class="line">        char c &#x3D; s[i];</span><br><span class="line">        &#x2F;&#x2F; 如果是数字</span><br><span class="line">        if (c &gt;&#x3D; &#39;0&#39; &amp;&amp; c &lt;&#x3D; &#39;9&#39;) &#123;</span><br><span class="line">            numberSeen &#x3D; true;</span><br><span class="line">            numberAfterE &#x3D; true;&#x2F;&#x2F;对于输入为纯数字的情况，要先设为true</span><br><span class="line">            &#x2F;&#x2F; 如果是小数点</span><br><span class="line">        &#125; else if (c &#x3D;&#x3D; &#39;.&#39;) &#123;</span><br><span class="line">            if (pointSeen || eSeen)</span><br><span class="line">                return false;</span><br><span class="line">            pointSeen &#x3D; true;</span><br><span class="line">            &#x2F;&#x2F; 如果是e || E，必须没有出现过且出现过数字</span><br><span class="line">        &#125; else if (c &#x3D;&#x3D; &#39;e&#39; || c &#x3D;&#x3D; &#39;E&#39;) &#123;</span><br><span class="line">            if (eSeen || !numberSeen)</span><br><span class="line">                return false;</span><br><span class="line">            eSeen &#x3D; true;</span><br><span class="line">            numberAfterE &#x3D; false;</span><br><span class="line">            &#x2F;&#x2F; 如果出现正负号，必须是首位，或者前一位是e || E</span><br><span class="line">        &#125; else if (c &#x3D;&#x3D; &#39;+&#39; || c &#x3D;&#x3D; &#39;-&#39;) &#123;</span><br><span class="line">            if (i !&#x3D; 0 &amp;&amp; s[i - 1] !&#x3D; &#39;e&#39; &amp;&amp; s[i - 1] !&#x3D; &#39;E&#39;)</span><br><span class="line">                return false;</span><br><span class="line">        &#125; else</span><br><span class="line">            return false;</span><br><span class="line">    &#125;</span><br><span class="line">    return numberSeen &amp;&amp; numberAfterE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2020/04/03/%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+    <time datetime="2020-04-03T13:49:49.000Z" class="entry-date">
+        2020-04-03
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%91%E6%8C%87offer/" rel="tag">剑指offer</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2020/04/03/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="prev"><span class="meta-nav">←</span> 二叉树</a></span>
+    
+    
+        <span class="nav-next"><a href="/2020/04/03/%E6%95%B0%E7%BB%84/" rel="next">数组 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/03/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/03/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/03/%E6%95%B0%E7%BB%84/">数组</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/03/%E9%93%BE%E8%A1%A8/">链表</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/03/%E7%BA%BF%E7%A8%8B%E6%B1%A0/">线程池</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-JUC/" rel="tag">Java JUC</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%91%E6%8C%87offer/" rel="tag">剑指offer</a><span class="tag-list-count">4</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/Java-JUC/" style="font-size: 10px;">Java JUC</a> <a href="/tags/%E5%89%91%E6%8C%87offer/" style="font-size: 10px;">剑指offer</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2020 张果果的博客
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
